@@ -16,5 +16,5 @@ run:
 	kubectl run $(NAME) --image=$(NAME):$(VERSION) \
 	--port=8080 --image-pull-policy=Never
 
-nuke-everything:
+nuke:
 	kubectl delete deploy --all
