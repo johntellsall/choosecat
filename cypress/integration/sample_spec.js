@@ -4,7 +4,8 @@ describe('My First Test', function() {
   })
 })
 describe('The Home Page', function() {
-  it('successfully loads', function() {
+  it('says Hello', function() {
     cy.visit('/')
+    console.log(cy.get('body').contains('Hello'))
   })
 })
