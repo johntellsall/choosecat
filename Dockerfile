@@ -13,4 +13,4 @@ COPY ./requirements.txt /app/requirements.txt
 
 RUN pip install -qr requirements.txt
 
-COPY . /app
+# COPY . /app

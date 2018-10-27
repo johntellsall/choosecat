@@ -4,7 +4,7 @@ from pyramid.config import Configurator
 from pyramid.response import Response
 
 def hello_world(request):
-    return Response('Hello World!')
+    return Response('Hello World! 224')
 
 if __name__ == '__main__':
     with Configurator() as config:
@@ -14,4 +14,3 @@ if __name__ == '__main__':
     server = make_server('0.0.0.0', int(os.environ['CHOOSECAT_PORT']), app)
     # import ipdb ; ipdb.set_trace()
     server.serve_forever()
-    
