@@ -1,12 +1,12 @@
-FROM ubuntu:16.04
+# FROM ubuntu:16.04
+FROM python:3.6
 
 RUN apt-get update -y && \
-    apt-get install -y python-pip python-dev vim && \
+    apt-get install -y vim && \
     pip install --upgrade pip setuptools
 
 WORKDIR /app
-ENTRYPOINT [ "python" ]
-CMD [ "choosecat.py" ]
+CMD [ "python", "choosecat.py" ]
 
 # We copy this file first to leverage docker cache
 COPY ./requirements.txt /app/requirements.txt

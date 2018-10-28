@@ -21,6 +21,8 @@ services:
       volumes:
       - ./bash_history:/root/.bash_history
       - ./:/app
+
+
    # wordpress:
    #   # depends_on:
    #   #   - db

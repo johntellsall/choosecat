@@ -1,10 +1,12 @@
 VERSION=$(shell date +%Y%m%d-%H%M)
 NAME=choosecat
+DC=docker-compose
 
 all:
 
+docker-test:
+	$(DC) build && $(DC) run --rm local pytest
 
-	# eval $$(minikube docker-env) 
 build:
 	docker build -t $(NAME):$(VERSION) .
 set-image: 

@@ -1,2 +1,4 @@
-pyramid
+pyramid==1.9.2
 ipdb
+black
+pytest
