@@ -1,16 +1,13 @@
 version: '3.3'
 
 services:
-   # db:
-   #   image: mysql:5.7
+   db:
+     image: postgres:11.0
+     environment:
+      POSTGRES_PASSWORD: 048fa3d1
+     restart: always
    #   volumes:
    #     - db_data:/var/lib/mysql
-   #   restart: always
-   #   environment:
-   #     MYSQL_ROOT_PASSWORD: somewordpress
-   #     MYSQL_DATABASE: wordpress
-   #     MYSQL_USER: wordpress
-   #     MYSQL_PASSWORD: wordpress
 
    local:
       build: .
@@ -18,14 +15,15 @@ services:
          - "9999:9999"
       environment:
          CHOOSECAT_PORT: 9999
+         # POSTGRES_PASSWORD: 048fa3d1
       volumes:
       - ./bash_history:/root/.bash_history
       - ./:/app
+      depends_on:
+      - db
 
 
    # wordpress:
-   #   # depends_on:
-   #   #   - db
    #   image: wordpress:latest
    #   ports:
    #     - "9999:80"

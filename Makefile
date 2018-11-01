@@ -9,14 +9,17 @@ docker-test:
 
 build:
 	docker build -t $(NAME):$(VERSION) .
-set-image: 
+
+# ::::: Kubernetes
+	
+kset-image: 
 	kubectl set image deployment/$(NAME) \
 	$(NAME)=$(NAME):$(VERSION)
-apply: build set-image
+kapply: build kset-image
 
-run:
+krun:
 	kubectl run $(NAME) --image=$(NAME):$(VERSION) \
 	--port=8080 --image-pull-policy=Never
 
-nuke:
+knuke:
 	kubectl delete deploy --all
