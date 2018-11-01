@@ -16,7 +16,7 @@ def choose_cat():
 
 def hello_world(request):
     cat = choose_cat()
-    return Response(f'Hello World! 224<hr><img src="{cat}">')
+    return Response(f'Hello World! 725<hr><img src="{cat}">')
 
 
 if __name__ == "__main__":
