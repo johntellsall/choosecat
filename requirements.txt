@@ -1,4 +1,8 @@
 pyramid==1.9.2
+SQLAlchemy==1.2.13
+psycopg2
+
+# developer:
 ipdb
 black
 pytest

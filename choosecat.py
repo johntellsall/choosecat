@@ -1,9 +1,12 @@
+import logging
 import os
 import random
 
+import sqlalchemy
 from wsgiref.simple_server import make_server
 from pyramid.config import Configurator
 from pyramid.response import Response
+from sqlalchemy.sql import text
 
 
 def choose_cat():
@@ -13,6 +16,11 @@ def choose_cat():
     ]
     return random.choice(IMAGES)
 
+def check_database():
+    postgres_url = 'postgresql://postgres:{POSTGRES_PASSWORD}@db/database'.format(**os.environ)
+    engine = sqlalchemy.create_engine(postgres_url)
+    with engine.connect() as con:
+        return con.execute('SELECT version()')
 
 def hello_world(request):
     cat = choose_cat()
@@ -20,6 +28,7 @@ def hello_world(request):
 
 
 if __name__ == "__main__":
+    logging.info('database: %s', check_database())
     with Configurator() as config:
         config.add_route("hello", "/")
         config.add_view(hello_world, route_name="hello")

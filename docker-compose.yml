@@ -15,7 +15,7 @@ services:
          - "9999:9999"
       environment:
          CHOOSECAT_PORT: 9999
-         # POSTGRES_PASSWORD: 048fa3d1
+         POSTGRES_PASSWORD: 048fa3d1
       volumes:
       - ./bash_history:/root/.bash_history
       - ./:/app
