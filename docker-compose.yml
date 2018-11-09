@@ -2,10 +2,12 @@ version: '3.3'
 
 services:
    db:
-     image: postgres:11.0
-     environment:
-      POSTGRES_PASSWORD: 048fa3d1
-     restart: always
+      image: postgres:11.0
+      environment:
+         POSTGRES_PASSWORD: 048fa3d1
+      restart: always
+      ports:
+      - "5432:5432"
    #   volumes:
    #     - db_data:/var/lib/mysql
 
