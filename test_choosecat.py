@@ -6,3 +6,5 @@ def test_hello():
 
 def test_database():
 	assert choosecat.check_database() == 'blam'
+
+del test_database # TODO
