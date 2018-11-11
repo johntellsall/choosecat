@@ -23,16 +23,3 @@ services:
       - ./:/app
       depends_on:
       - db
-
-
-   # wordpress:
-   #   image: wordpress:latest
-   #   ports:
-   #     - "9999:80"
-   #   restart: always
-   #   environment:
-   #     WORDPRESS_DB_HOST: db:3306
-   #     WORDPRESS_DB_USER: wordpress
-   #     WORDPRESS_DB_PASSWORD: wordpress
-# volumes:
-#     db_data:
