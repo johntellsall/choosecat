@@ -11,7 +11,10 @@ build:
 	docker build -t $(NAME):$(VERSION) .
 
 # ::::: Kubernetes
-	
+
+kexpose:
+	kubectl expose deployment $(NAME) --type=LoadBalancer
+
 kset-image: 
 	kubectl set image deployment/$(NAME) \
 	$(NAME)=$(NAME):$(VERSION)
@@ -21,5 +24,5 @@ krun:
 	kubectl run $(NAME) --image=$(NAME):$(VERSION) \
 	--port=8080 --image-pull-policy=Never
 
-knuke:
+knukeall:
 	kubectl delete deploy --all
